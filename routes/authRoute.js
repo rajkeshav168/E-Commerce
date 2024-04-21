@@ -1,4 +1,4 @@
-import express, { Router } from "express";
+import express, {Router} from "express";
 import {registerController,loginController,testController,} from "../controllers/authController.js";
 import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
 

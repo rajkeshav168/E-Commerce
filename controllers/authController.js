@@ -8,26 +8,26 @@ export const registerController = async(req,res)=>{
 
         // validation
         if(!name){
-            res.send({error:'Name is required'})
+            res.send({message:'Name is required'})
         }
         if(!email){
-            res.send({error:'email is required'})
+            res.send({message:'email is required'})
         }
         if(!password){
-            res.send({error:'password is required'})
+            res.send({message:'password is required'})
         }
         if(!phone){
-            res.send({error:'phone is required'})
+            res.send({message:'phone is required'})
         }
         if(!address){
-            res.send({error:'address is required'})
+            res.send({message:'address is required'})
         }
         // check user
         const existingUser = await userModel.findOne({email})
 
         if(existingUser){
             return res.status(500).send({
-                sucess:true,
+                success:false,
                 message:'user already exist,please login'
             })
         }
@@ -37,8 +37,8 @@ export const registerController = async(req,res)=>{
         // save user
         const user = await new userModel({name,email,phone,address,password:hashedPassword}).save()
         res.status(201).send({
-            sucess:true,
-            message:'user registered sucessfully',
+            success:true,
+            message:'user registered successfully',
             user
         })
 
@@ -87,8 +87,8 @@ export const loginController = async(req,res)=>{
         //token
         const token = await JWT.sign({_id:user._id},process.env.JWT_SECRET,{expiresIn:"7d",});
         res.status(200).send({
-            sucess:true,
-            message:"login sucessfully",
+            success:true,
+            message:"login successfully",
             user:{
                 name:user.name,
                 email:user.email,
@@ -101,7 +101,7 @@ export const loginController = async(req,res)=>{
     } catch (error) {
         console.log(error)
         res.status(501).send({
-            sucess:false,
+            success:false,
             message:"error in login",
             error
         })
