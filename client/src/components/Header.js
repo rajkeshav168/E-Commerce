@@ -3,6 +3,7 @@ import { NavLink,Link } from 'react-router-dom'
 import { GiShoppingBag } from "react-icons/gi";
 import { useAuth } from '../context/auth';
 import toast from 'react-hot-toast';
+import Dashboard from './../pages/user/Dashboard';
 
 
 const Header = () => {
@@ -41,7 +42,7 @@ const Header = () => {
             </NavLink>
         </li>
         {
-          !auth.user ? (<>
+          !auth?.user ? (<>
           <li className="nav-item">
           <NavLink to='/register' className="nav-link" >
             Register
@@ -53,11 +54,26 @@ const Header = () => {
             </NavLink>
          </li>
           </>) : (<>
-          <li className="nav-item">
-            <NavLink onClick={handleLogout}  to='/login' className="nav-link" >
+
+          <li className="nav-item dropdown">
+          <NavLink className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {auth?.user?.name}
+          </NavLink>
+          <ul className="dropdown-menu">
+            <li><NavLink to='/dashboard' className="dropdown-item" >Dashboard</NavLink></li>
+            <li>
+              <NavLink onClick={handleLogout}  to='/login' className="dropdown-item" >
             Logout
             </NavLink>
-         </li>
+            </li>
+            
+
+          </ul>
+        </li>
+
+
+
+          
           </>)
         }
          <li className="nav-item">
