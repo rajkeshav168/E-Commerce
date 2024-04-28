@@ -1,5 +1,5 @@
 import {Routes,Route} from 'react-router-dom';
-import Homepage from './pages/Homepage';
+
 import About from './pages/About';
 import Pagenotfound from './pages/Pagenotfound';
 import  Policyy  from './pages/Policyy';
@@ -22,12 +22,24 @@ import Orders from './pages/user/Orders.js';
 import Profile from './pages/user/Profile.js';
 import Products from './pages/Admin/Products.js';
 import UpdateProduct from './pages/Admin/UpdateProduct.js';
+import Homepage from './pages/Homepage.js';
+import Search from './pages/Search.js';
+import ProductDetails from './pages/ProductDetails.js';
+import Categories from './pages/Categories.js';
+import CategoryProduct from './pages/CategoryProduct';
+import CartPage from './pages/CartPage.js';
+
 
 function App() {
   return (
     <>
     <Routes>
       <Route path='/' element = {<Homepage/>}/>
+      <Route path='/search' element = {<Search/>}/>
+      <Route path='/product/:slug' element = {<ProductDetails/>}/>
+      <Route path='/categories' element = {<Categories/>}/>
+      <Route path='/cart' element = {<CartPage/>}/>
+      <Route path='/category/:slug' element = {<CategoryProduct/>}/>
       <Route path='/register' element = {<Register/>}/>
       <Route path='/login' element = {<Login/>}/>
       <Route path='/forgot-password' element = {<ForgotPassword/>}/>
