@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
-import { useCart } from "../context/Cart";
+import { useCart } from "../context/cart";
 import toast from "react-hot-toast";
 const Homepage = () => {
   const navigate = useNavigate(); 

@@ -17,7 +17,7 @@ import AdminDashboard from './pages/Admin/AdminDashboard.js';
 import CreateCategory from './pages/Admin/CreateCategory.js';
 import CreateProduct from './pages/Admin/CreateProduct.js';
 
-import Userss from './pages/Admin/Userss.js';
+import Userss from './pages/Admin/Users.js';
 import Orders from './pages/user/Orders.js';
 import Profile from './pages/user/Profile.js';
 import Products from './pages/Admin/Products.js';
@@ -28,6 +28,7 @@ import ProductDetails from './pages/ProductDetails.js';
 import Categories from './pages/Categories.js';
 import CategoryProduct from './pages/CategoryProduct';
 import CartPage from './pages/CartPage.js';
+import AdminOrders from './pages/Admin/AdminOrders.js';
 
 
 function App() {
@@ -55,7 +56,11 @@ function App() {
         <Route path='admin/create-category' element = {<CreateCategory/>}></Route>
         <Route path='admin/create-product' element = {<CreateProduct/>}></Route>
         <Route path='admin/products' element = {<Products/>}></Route>
-        <Route path='admin/product/:slug' element = {<UpdateProduct/>}></Route>
+        <Route path='admin/orders' element = {<AdminOrders/>}></Route>
+        <Route path='admin/product/:slug' element = {<UpdateProduct/>}>
+
+
+        </Route>
 
         <Route path='admin/users' element = {<Userss/>}></Route>
 

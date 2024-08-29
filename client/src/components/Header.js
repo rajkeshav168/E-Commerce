@@ -5,7 +5,7 @@ import { useAuth } from '../context/auth';
 import toast from 'react-hot-toast';
 import SearchInput from './Form/searchInput';
 import useCategory from '../hooks/useCategory';
-import { useCart } from '../context/Cart';
+import { useCart } from '../context/cart';
 import { Badge } from 'antd';
 
 const Header = () => {
